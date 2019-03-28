@@ -6,8 +6,8 @@ const randomDescription = require('./random_text.js');
 const db = require('../database/db.js');
 
 AWS.config.update({
-    accessKeyId:'AKIAJ5F62FIZ7BPGM7OA',
-    secretAccessKey: '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',
+    accessKeyId: process.env.S3AccessKey,
+    secretAccessKey: process.env.S3SecretKey,
     region: 'us-east-2'
 });
 

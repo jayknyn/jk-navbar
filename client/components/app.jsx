@@ -1,8 +1,6 @@
 import React from 'react';
 import Tag from './Tag.jsx';
-import Carousel from './carousel.jsx';
 import axios from 'axios';
-import Slider from 'react-slick';
 
 
 class App extends React.Component {
@@ -138,18 +136,6 @@ class App extends React.Component {
                  {this.state.tags.map((tag, index) => {
                     return <Tag tag = {tag} length = {this.state.tags.length} axes = {this.findallAxesFromTag(tag)} key = {index} handleProductClick = {this.handleProductClick.bind(this)}/> 
                 })}
-            </div>
-            <div style = {{height: '500px'}}></div>
-            <div>
-                <div className='carousel_Container'>
-                    <Slider {...settings}>
-                        {this.findallAxesFromTag(this.state.currentTag).map((axe, index) => {
-                            if (this.state.currentId !== axe.productId) {
-                                return <Carousel axe = {axe} key = {index} handleProductClick = {this.handleProductClick.bind(this)}/>
-                            }   
-                        })}
-                    </Slider>
-                </div>
             </div>
         </div>
         )
