@@ -83,21 +83,3 @@ class App extends React.Component {
 }
 
 export default App;
-
-
-//homemade carousel
-/*
-<div>
-                        <input id = 'leftCarouselButton' onClick = {(e) => {this.handleLeftCarouselClick(e)}} type = 'submit' name ='lbutton' value = 'lbutton'/>
-                    </div>
-                    <div id = 'carousel'>
-                        {this.findallAxesFromTag(this.state.currentTag).map((axe, index) => {
-                            if (index >= this.state.carouselBegin && index < this.state.carouselEnd && this.state.currentId !== axe.id) {
-                                return <Carousel axe = {axe} key = {index} handleProductClick = {this.handleProductClick.bind(this)}/>
-                            }   
-                        })}
-                    </div>
-                    <div>
-                        <input onClick = {(e) => {this.handleRightCarouselClick(e)}} type = 'submit' name ='rbutton' value = 'rbutton'/>
-                    </div>
-*/

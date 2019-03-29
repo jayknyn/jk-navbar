@@ -36,7 +36,6 @@ app.get('/api/products', (req, res) => {
             console.log(err);
             res.end()
         } else {
-            console.log(data);
             res.send(data);
         }
     })
