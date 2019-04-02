@@ -30,7 +30,7 @@ app.get('/api', (req, res) => {
 });
 
 
-app.get('/api/products', (req, res) => {
+app.get('/products', (req, res) => {
     db.getAll((err, data) => {
         if (err) {
             console.log(err);
