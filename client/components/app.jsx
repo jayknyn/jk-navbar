@@ -1,6 +1,7 @@
 import React from 'react';
 import Tag from './Tag.jsx';
 import axios from 'axios';
+import { slide as Menu } from 'react-burger-menu';
 
 
 class App extends React.Component {
@@ -70,14 +71,16 @@ class App extends React.Component {
 
     render() {
         return (
-        <div id = 'Container'>
-             {this.state.currentId}
-             <div id= 'NavBarParent'>
-                 {this.state.tags.map((tag, index) => {
-                    return <Tag tag = {tag} length = {this.state.tags.length} axes = {this.findallAxesFromTag(tag)} key = {index} handleProductClick = {this.handleProductClick.bind(this)}/> 
-                })}
+        <Menu>
+            <div id = 'Container'>
+                {this.state.currentId}
+                <div id= 'NavBarParent'>
+                    {this.state.tags.map((tag, index) => {
+                        return <Tag tag = {tag} length = {this.state.tags.length} axes = {this.findallAxesFromTag(tag)} key = {index} handleProductClick = {this.handleProductClick.bind(this)}/> 
+                    })}
+                </div>
             </div>
-        </div>
+        </Menu>    
         )
     }
 }
