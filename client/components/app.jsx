@@ -29,7 +29,7 @@ class App extends React.Component {
         axios.defaults.port = process.env.PORT || 3005;
         console.log(axios.defaults);
         console.log(process.env.PORT);
-        axios.get('/api/products')
+        axios.get('localhost:3005/api/products')
         .then(results => {
             const tagArr = [];
             const tagObj = {};
