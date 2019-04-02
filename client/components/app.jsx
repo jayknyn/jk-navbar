@@ -41,6 +41,9 @@ class App extends React.Component {
                 axes: results.data
             });
         })
+        .catch(err => {
+            console.error(err);
+        })
     };
 
 
