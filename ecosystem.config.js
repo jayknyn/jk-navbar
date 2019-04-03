@@ -6,7 +6,7 @@ module.exports = {
     deploy: {
       production: {
         user: 'ubuntu',
-        host: 'ec2-18-222-209-49.us-east-2.compute.amazonaws.com',
+        host: 'ec2-13-59-127-81.us-east-2.compute.amazonaws.com',
         key: '~/.ssh/FEC_Navbar.pem',
         ref: 'origin/master',
         repo: 'https://github.com/axe-center/AAnderson_Navbar_carousel_service.git',
