@@ -21,19 +21,19 @@ class Tag extends React.Component {
         let Nav;
 
         if (this.state.hovered) {
-            Nav = <div className = 'NavBar' style = {{width: `${80/this.props.length-1}vw`}}>
-                <div className = 'navHover' onMouseEnter = {(e) => {this.handleHover(e)}} onMouseLeave = {(e) => {this.handleHover(e)}}>
-                        {this.props.tag}
-                    <div>
-                        {this.props.axes.map((axe, index) => {
-                            return <Axe axe = {axe} key = {index} handleProductClick = {this.props.handleProductClick}/>
-                        })}
+            Nav = <div className = 'NavBar' onMouseEnter = {(e) => {this.handleHover(e)}} onMouseLeave = {(e) => {this.handleHover(e)}}>
+                        <div className = 'navHover' >
+                                {this.props.tag}
+                        </div>
+                        <div className = 'products'>
+                            {this.props.axes.map((axe, index) => {
+                                return <Axe axe = {axe} key = {index} handleProductClick = {this.props.handleProductClick}/>
+                            })}
+                        </div>
                     </div>
-                </div>
-            </div>
         } else {
-            Nav = <div className = 'NavBar' style = {{width: `${80/this.props.length-1}vw`}}>
-                <div className = 'navHover' onMouseEnter = {(e) => {this.handleHover(e)}} onMouseLeave = {(e) => {this.handleHover(e)}}>
+            Nav = <div className = 'NavBar' onMouseEnter = {(e) => {this.handleHover(e)}} onMouseLeave = {(e) => {this.handleHover(e)}}>
+                <div className = 'navHover' >
                         {this.props.tag}
                 </div>
             </div>
