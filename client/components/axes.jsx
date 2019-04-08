@@ -1,8 +1,10 @@
 import React from 'react';
+import Typography from '@material-ui/core/Typography';
+
 
 export default function Axe(props) {
 
     return (
-        <p onClick = {(e) => {props.handleProductClick(e,props.axe.productId, props.axe.tag)}}>{props.axe.name}</p>
+        <Typography variant = 'body2' onClick = {(e) => {props.handleProductClick(e,props.axe.productId, props.axe.tag)}}>{props.axe.name}</Typography>
     )
 }

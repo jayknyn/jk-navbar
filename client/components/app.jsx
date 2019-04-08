@@ -22,7 +22,7 @@ const axeTheme = createMuiTheme({
     },
     typography: {
         useNextVariants: true,
-      },
+      }
 })
 
 
@@ -96,15 +96,15 @@ class App extends React.Component {
 
     handleTabChange(e,evalue) {
         e.preventDefault();
-        let val = 11.5;
+        let val = 10;
         if (evalue === 'two') {
-            val = val*0;
+            val = 10 + 0;
         } else if (evalue === 'three') {
-            val = val*1;
+            val = val + 11.5;
         } else if (evalue === 'four') {
-            val = val*2;
+            val = val + 23;
         } else if (evalue === 'five') {
-            val = val*3;
+            val = val + 34.5;
         }
 
         this.setState({
@@ -135,21 +135,21 @@ class App extends React.Component {
                         })}
         </div>
         } else {
-            tab = <div id = 'tabContainer' style = {{marginLeft: `${this.state.anchorEl}vw`}}>WIP</div>
+            tab = <Typography variant = 'body2' id = 'tabContainer' style = {{marginLeft: `${this.state.anchorEl}vw`}}>WIP</Typography>
         }
 
         return (
         <MuiThemeProvider theme = {axeTheme}>
             <AppBar position = 'static' style = {{height:'10vh'}}>
-                <Typography variant="h6" color="textPrimary">Axe-Center</Typography>
+                <Typography variant="h6" color="textPrimary" style = {{color: '#c9c9c9'}}>Axe-Center</Typography>
             </AppBar>
             <div onMouseLeave = {this.handleTabLeave.bind(this)}>
-            <Tabs  value = {value} onChange = {this.handleTabChange.bind(this)} >
+            <Tabs style = {{backgroundColor: '#c9c9c9'}} value = {value} onChange = {this.handleTabChange.bind(this)} >
                 
-                <Tab value = 'two' icon = {<MenuIcon/>} onMouseEnter = {(e) => this.handleTabChange(e,'two')} />
-                <Tab value = 'three' label = 'Contact us' onMouseEnter = {(e) => this.handleTabChange(e,'three')}/>
-                <Tab value = 'four' label = 'About us' onMouseEnter = {(e) => this.handleTabChange(e,'four')}/>
-                <Tab value = 'five' label = 'Philanthropy' onMouseEnter = {(e) => this.handleTabChange(e,'five')}/>
+                <Tab value = 'two' icon = {<MenuIcon/>} onMouseEnter = {(e) => this.handleTabChange(e,'two')} style = {{width: '11.5vw', marginLeft: '10vw', color: '#a00000'}}/>
+                <Tab value = 'three' label = 'Contact us' onMouseEnter = {(e) => this.handleTabChange(e,'three')} style = {{width: '11.5vw'}}/>
+                <Tab value = 'four' label = 'About us' onMouseEnter = {(e) => this.handleTabChange(e,'four')} style = {{width: '11.5vw'}}/>
+                <Tab value = 'five' label = 'Philanthropy' onMouseEnter = {(e) => this.handleTabChange(e,'five')} style = {{width: '11.5vw'}}/>
             </Tabs>
             {tab}
             </div>
