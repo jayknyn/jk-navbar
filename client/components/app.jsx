@@ -141,7 +141,7 @@ class App extends React.Component {
         return (
         <MuiThemeProvider theme = {axeTheme}>
             <AppBar position = 'static' style = {{height:'10vh'}}>
-                <Typography variant="h6" color="textPrimary" style = {{color: '#c9c9c9'}}>Axe-Center</Typography>
+                <Typography variant="h6" color="textPrimary" style = {{color: '#c9c9c9', marginLeft: '10vw'}}>Axe-Center</Typography>
             </AppBar>
             <div onMouseLeave = {this.handleTabLeave.bind(this)}>
             <Tabs style = {{backgroundColor: '#c9c9c9'}} value = {value} onChange = {this.handleTabChange.bind(this)} >
