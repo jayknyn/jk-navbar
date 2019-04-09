@@ -70,7 +70,7 @@ class App extends React.Component {
 
         window.addEventListener('productId', (e) => {
             this.setState({
-                currentId: e.default
+                currentId: e.detail
             })
         })
     };
