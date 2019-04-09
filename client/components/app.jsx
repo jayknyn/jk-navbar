@@ -25,7 +25,6 @@ const axeTheme = createMuiTheme({
       }
 })
 
-
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -67,6 +66,13 @@ class App extends React.Component {
         .catch(err => {
             console.error(err);
         })
+
+
+        window.addEventListener('productId', (e) => {
+            this.setState({
+                currentId: e.default
+            })
+        })
     };
 
 
@@ -78,7 +84,9 @@ class App extends React.Component {
             currentTag: tag,
             carouselBegin: 0,
             carouselEnd: 5
-        })
+        }, (err, res) => {
+            window.dispatchEvent(new CustomEvent('productId', {"detail": this.state.currentId}))
+        });
     }
 
     findallAxesFromTag(tag) {
