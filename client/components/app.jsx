@@ -134,6 +134,9 @@ class App extends React.Component {
 
         let tab = <div></div>
 
+        if (value === 'one') {
+            tab = <div></div>
+        }
         if (value === 'two') {
             tab = <div id = 'tabContainer' style = {{marginLeft: `${this.state.anchorEl}vw`}}>
                         {this.state.tags.map((tag, index) => {
