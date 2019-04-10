@@ -133,11 +133,11 @@ class App extends React.Component {
         const {value} = this.state;
 
         let tab = <div></div>
+        console.log(this.state.value)
 
-        if (value === 'false') {
+        if (value === false) {
             tab = <div></div>
-        }
-        if (value === 'two') {
+        } else if (value === 'two') {
             tab = <div id = 'tabContainer' style = {{marginLeft: `${this.state.anchorEl}vw`}}>
                         {this.state.tags.map((tag, index) => {
                             return <Tag tag = {tag} length = {this.state.tags.length} axes = {this.findallAxesFromTag(tag)} key = {index} handleProductClick = {this.handleProductClick.bind(this)}/> 
