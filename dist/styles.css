@@ -1,6 +1,6 @@
 #tabContainer {
   position: absolute;
-  z-index: 0;
+  z-index: 100;
   background: rgba(204, 204, 204, 1.0);
   width: 11.5vw;
 }
