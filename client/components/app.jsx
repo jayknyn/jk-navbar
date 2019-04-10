@@ -134,7 +134,7 @@ class App extends React.Component {
 
         let tab = <div></div>
 
-        if (value === 'one') {
+        if (value === 'false') {
             tab = <div></div>
         }
         if (value === 'two') {
