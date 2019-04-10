@@ -8,6 +8,8 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
+const ec2address = 'http://ec2-52-14-74-144.us-east-2.compute.amazonaws.com'
+
 const axeTheme = createMuiTheme({
     palette: {
         primary: {
@@ -33,7 +35,7 @@ class App extends React.Component {
             tags: [],
             value: false,
             anchorEl: 16,
-            currentId: 0,
+            currentId: 1,
             currentTag: '',
             axes: [
                 {
@@ -48,7 +50,7 @@ class App extends React.Component {
     };
 
     componentDidMount() {
-        axios.get('/api/navbar/products')
+        axios.get(`${ec2address}/api/navbar/products`)
         .then(results => {
             const tagArr = [];
             const tagObj = {};
@@ -133,7 +135,7 @@ class App extends React.Component {
         const {value} = this.state;
 
         let tab = <div></div>
-        
+
         if (value === false) {
             tab = <div></div>
         } else if (value === 'two') {
