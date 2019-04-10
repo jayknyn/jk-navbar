@@ -133,8 +133,7 @@ class App extends React.Component {
         const {value} = this.state;
 
         let tab = <div></div>
-        console.log(this.state.value)
-
+        
         if (value === false) {
             tab = <div></div>
         } else if (value === 'two') {
