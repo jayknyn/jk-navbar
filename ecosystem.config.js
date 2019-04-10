@@ -1,3 +1,7 @@
+const ec2address = 'http://ec2-52-14-74-144.us-east-2.compute.amazonaws.com'
+
+
+
 module.exports = {
     apps: [{
       name: 'server',
@@ -6,7 +10,7 @@ module.exports = {
     deploy: {
       production: {
         user: 'ubuntu',
-        host: 'ec2-52-14-74-144.us-east-2.compute.amazonaws.com',
+        host: ec2address,
         key: '~/.ssh/FEC_Navbar.pem',
         ref: 'origin/master',
         repo: 'https://github.com/axe-center/AAnderson_Navbar_carousel_service.git',
