@@ -7,6 +7,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import './styles.css';
 
 const ec2address = 'http://ec2-52-14-74-144.us-east-2.compute.amazonaws.com'
 

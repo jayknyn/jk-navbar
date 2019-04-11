@@ -10,6 +10,10 @@
  flex-grow: 1;
 }
 
+body {
+  margin: 0 !important;
+}
+
 .products {
   display: flex;
   position: absolute;

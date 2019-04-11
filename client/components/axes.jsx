@@ -1,5 +1,6 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
+import './styles.css';
 
 
 export default function Axe(props) {
