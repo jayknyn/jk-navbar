@@ -3,6 +3,7 @@ import Axe from './axes.jsx';
 import Typography from '@material-ui/core/Typography';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight'
 import KeyboardArrowDown from '@material-ui/icons/KeyboardArrowDown'
+import './styles.css';
 
 class Tag extends React.Component {
     constructor(props) {
