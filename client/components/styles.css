@@ -37,6 +37,10 @@ body {
 
 .contactInfo {
   font-family: sans-serif;
+  
+}
+
+div .contactInfo {
   margin: 0 10vh;
 }
 /*
