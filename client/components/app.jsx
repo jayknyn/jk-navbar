@@ -8,8 +8,9 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import './styles.css';
+import { Hidden } from '@material-ui/core';
 
-const ec2address = 'http://ec2-52-14-37-251.us-east-2.compute.amazonaws.com'
+const ec2address = 'http://localhost:3005' //'http://ec2-52-14-37-251.us-east-2.compute.amazonaws.com'
 
 const axeTheme = createMuiTheme({
     palette: {
@@ -130,6 +131,122 @@ class App extends React.Component {
         })
     }
 
+    handleContactClick(e) {
+        e.preventDefault();
+
+        let about = document.getElementById('aboutInfo');
+        let phil = document.getElementById('philInfo');
+        if (about) {
+            about.remove();
+        }
+        if (phil) {
+            phil.remove();
+        }
+        if (!document.getElementById('contactInfo')) {
+            let body = document.getElementsByTagName('body');
+            let contactDiv = document.createElement('div');
+            let products = document.getElementById('products');
+    
+            contactDiv.innerHTML = `<div class = 'contactInfo'>
+                <h1>Hello, please use the below information to contact us</h1> 
+                <p class = 'contactInfo' >Phone: 555-123-4567</p>
+                <p class = 'contactInfo'>Email: axesssss@axesRus.org</p>
+                <p class = 'contactInfo' >pigeon: over yonder</p>
+            </div>`
+    
+            contactDiv.id = 'contactInfo'
+            body[0].insertBefore(contactDiv,products);
+        }
+        document.getElementById('carousel').style.visibility = 'hidden' 
+        document.getElementById('reviews').style.visibility = 'hidden' 
+        document.getElementById('graph').style.visibility = 'hidden' 
+        document.getElementById('products').style.visibility = 'hidden' 
+        
+
+    }
+
+    handleAboutClick(e) {
+        e.preventDefault();
+
+        let contact = document.getElementById('contactInfo');
+        let phil = document.getElementById('philInfo');
+        if (contact) {
+            contact.remove();
+        }
+        if (phil) {
+            phil.remove();
+        }
+
+        if (!document.getElementById('aboutInfo')) {
+            let body = document.getElementsByTagName('body');
+            let contactDiv = document.createElement('div');
+            let products = document.getElementById('products');
+    
+            contactDiv.innerHTML = `<div class = 'contactInfo'>
+                <h1>Hello, we sell axes</h1> 
+            </div>`
+    
+            contactDiv.id = 'aboutInfo'
+            body[0].insertBefore(contactDiv,products);
+        }
+        document.getElementById('carousel').style.visibility = 'hidden' 
+        document.getElementById('reviews').style.visibility = 'hidden' 
+        document.getElementById('graph').style.visibility = 'hidden' 
+        document.getElementById('products').style.visibility = 'hidden' 
+
+    }
+
+    handlePhilClick(e) {
+        e.preventDefault();
+
+        let contact = document.getElementById('contactInfo');
+        let about = document.getElementById('aboutInfo');
+        if (contact) {
+            contact.remove();
+        }
+        if (about) {
+            about.remove();
+        }
+
+        if (!document.getElementById('philInfo')) {
+            let body = document.getElementsByTagName('body');
+            let contactDiv = document.createElement('div');
+            let products = document.getElementById('products');
+    
+            contactDiv.innerHTML = `<div class = 'contactInfo'>
+                <h1>Hello, we are the prime donators to LIN, or Larpers In Need</h1> 
+            </div>`
+    
+            contactDiv.id = 'philInfo'
+            body[0].insertBefore(contactDiv,products);
+        }
+        document.getElementById('carousel').style.visibility = 'hidden' 
+        document.getElementById('reviews').style.visibility = 'hidden' 
+        document.getElementById('graph').style.visibility = 'hidden' 
+        document.getElementById('products').style.visibility = 'hidden' 
+
+    }
+
+    handleBackClick(e) {
+        e.preventDefault();
+        let contact = document.getElementById('contactInfo');
+        let about = document.getElementById('aboutInfo');
+        let phil = document.getElementById('philInfo');
+        if (contact) {
+            contact.remove();
+        }
+        if (about) {
+            about.remove();
+        }
+        if (phil) {
+            phil.remove();
+        }
+        document.getElementById('carousel').style.visibility = 'visible' 
+        document.getElementById('reviews').style.visibility = 'visible' 
+        document.getElementById('graph').style.visibility = 'visible' 
+        document.getElementById('products').style.visibility = 'visible' 
+    }
+
     
 
     render() {
@@ -140,27 +257,30 @@ class App extends React.Component {
         if (value === false) {
             tab = <div></div>
         } else if (value === 'two') {
-            tab = <div id = 'tabContainer' style = {{marginLeft: `${this.state.anchorEl}vw`}}>
+            tab = <div id = 'tabContainer' style = {{marginLeft: `${this.state.anchorEl}vw`}} onClick = {(e) => {this.handleBackClick(e)}}>
                         {this.state.tags.map((tag, index) => {
-                            return <Tag tag = {tag} length = {this.state.tags.length} axes = {this.findallAxesFromTag(tag)} key = {index} handleProductClick = {this.handleProductClick.bind(this)}/> 
+                            return <Tag tag = {tag} length = {this.state.tags.length} axes = {this.findallAxesFromTag(tag)} 
+                            key = {index} handleProductClick = {this.handleProductClick.bind(this)}/> 
                         })}
                 </div>
-        } else {
-            tab = <Typography variant = 'body2' id = 'tabContainer' style = {{marginLeft: `${this.state.anchorEl}vw`}}>WIP</Typography>
-        }
+        } 
+        
+        // else {
+        //     tab = <Typography variant = 'body2' id = 'tabContainer' style = {{marginLeft: `${this.state.anchorEl}vw`}}>WIP</Typography>
+        // }
 
         return (
         <MuiThemeProvider theme = {axeTheme}>
             <AppBar position = 'static' style = {{height:'10vh'}}>
-                <Typography variant="h6" color="textPrimary" style = {{color: '#c9c9c9', marginLeft: '10vw'}}>Axe-Center</Typography>
+                <Typography variant="h6" color="textPrimary" style = {{color: '#c9c9c9', marginLeft: '10vw'}} onClick = {(e) => {this.handleBackClick(e)}}>Axe-Center</Typography>
             </AppBar>
             <div onMouseLeave = {this.handleTabLeave.bind(this)}>
             <Tabs style = {{backgroundColor: '#c9c9c9'}} value = {value} onChange = {this.handleTabChange.bind(this)} >
                 
                 <Tab value = 'two' icon = {<MenuIcon/>} onMouseEnter = {(e) => this.handleTabChange(e,'two')} style = {{width: '11.5vw', marginLeft: '10vw', color: '#a00000'}}/>
-                <Tab value = 'three' label = 'Contact us' onMouseEnter = {(e) => this.handleTabChange(e,'three')} style = {{width: '11.5vw'}}/>
-                <Tab value = 'four' label = 'About us' onMouseEnter = {(e) => this.handleTabChange(e,'four')} style = {{width: '11.5vw'}}/>
-                <Tab value = 'five' label = 'Philanthropy' onMouseEnter = {(e) => this.handleTabChange(e,'five')} style = {{width: '11.5vw'}}/>
+                <Tab value = 'three' label = 'Contact us' onMouseEnter = {(e) => this.handleTabChange(e,'three')} style = {{width: '11.5vw'}} onClick = {(e) => {this.handleContactClick(e)}}/>
+                <Tab value = 'four' label = 'About us' onMouseEnter = {(e) => this.handleTabChange(e,'four')} style = {{width: '11.5vw'}} onClick = {(e) => {this.handleAboutClick(e)}}/>
+                <Tab value = 'five' label = 'Philanthropy' onMouseEnter = {(e) => this.handleTabChange(e,'five')} style = {{width: '11.5vw'}} onClick = {(e) => {this.handlePhilClick(e)}}/>
             </Tabs>
             {tab}
             </div>

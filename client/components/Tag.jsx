@@ -10,7 +10,7 @@ class Tag extends React.Component {
         super(props)
 
         this.state = {
-            hovered: false
+            hovered: false,
         }
     }
 
@@ -21,6 +21,8 @@ class Tag extends React.Component {
             hovered: !this.state.hovered
         })
     }
+
+
     render() {
         let Nav;
 
