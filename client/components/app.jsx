@@ -10,7 +10,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import './styles.css';
 import { Hidden } from '@material-ui/core';
 
-const ec2address = 'http://localhost:3005' //'http://ec2-52-14-37-251.us-east-2.compute.amazonaws.com'
+const ec2address = 'http://ec2-52-14-37-251.us-east-2.compute.amazonaws.com'
 
 const axeTheme = createMuiTheme({
     palette: {
