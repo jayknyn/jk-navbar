@@ -147,7 +147,7 @@ class App extends React.Component {
             let contactDiv = document.createElement('div');
             let products = document.getElementById('products');
     
-            contactDiv.innerHTML = `<div class = 'contactInfo'>
+            contactDiv.innerHTML = `<div class = 'contactInfo contactInfoDiv'>
                 <h1>Hello, please use the below information to contact us</h1> 
                 <p class = 'contactInfo' >Phone: 555-123-4567</p>
                 <p class = 'contactInfo'>Email: axesssss@axesRus.org</p>
@@ -182,7 +182,7 @@ class App extends React.Component {
             let contactDiv = document.createElement('div');
             let products = document.getElementById('products');
     
-            contactDiv.innerHTML = `<div class = 'contactInfo'>
+            contactDiv.innerHTML = `<div class = 'contactInfo contactInfoDiv'>
                 <h1>Hello, we sell axes</h1> 
             </div>`
     
@@ -213,7 +213,7 @@ class App extends React.Component {
             let contactDiv = document.createElement('div');
             let products = document.getElementById('products');
     
-            contactDiv.innerHTML = `<div class = 'contactInfo'>
+            contactDiv.innerHTML = `<div class = 'contactInfo contactInfoDiv'>
                 <h1>Hello, we are the prime donators to LIN, or Larpers In Need</h1> 
             </div>`
     
