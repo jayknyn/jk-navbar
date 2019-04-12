@@ -9,7 +9,7 @@ import Tab from '@material-ui/core/Tab';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import './styles.css';
 
-const ec2address = 'http://ec2-52-14-74-144.us-east-2.compute.amazonaws.com'
+const ec2address = 'http://ec2-52-14-37-251.us-east-2.compute.amazonaws.com'
 
 const axeTheme = createMuiTheme({
     palette: {
