@@ -1,11 +1,74 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import './styles.css';
+import Tooltip from '@material-ui/core/Tooltip';
+
+export default class Axe extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            axeHovered: false
+        }
+    }
+
+    handleAxeHover(e) {
+        e.preventDefault();
+        this.setState({
+            axeHovered: !this.state.axeHovered
+        })
+    }
+
+    render() {
+        let info;
+        let tooltipTitle = (`Price: $${this.props.axe.price} Description: ${this.props.axe.description.slice(0,15)}...`)
+        if (this.state.axeHovered) {
+            info = <Tooltip title = {tooltipTitle} placement = 'right-start'>
+                <Typography variant = 'body2' onClick = {(e) => {this.props.handleProductClick(e,this.props.axe.productId, this.props.axe.tag)}}
+                onMouseLeave = {(e) => {this.handleAxeHover(e)}}>
+                    {this.props.axe.name}
+                </Typography>
+            </Tooltip>
+        } else {
+            info = <Typography variant = 'body2' onClick = {(e) => {this.props.handleProductClick(e,this.props.axe.productId, this.props.axe.tag)}} 
+            onMouseEnter = {(e) => {this.handleAxeHover(e)}} 
+            >
+                {this.props.axe.name}
+            </Typography>
+    
+        }
+        return (
+            <div>
+                {info}
+            </div>
+        )
+    }
+}
 
 
+
+/*
 export default function Axe(props) {
+    let info;
+    if (props.axeHovered) {
+        info = <Typography variant = 'body2' onClick = {(e) => {props.handleProductClick(e,props.axe.productId, props.axe.tag)}}>
+            {props.axe.name}
+            hello
+        </Typography>
+    } else {
+        info = <Typography variant = 'body2' onClick = {(e) => {props.handleProductClick(e,props.axe.productId, props.axe.tag)}} 
+        onMouseEnter = {(e) => {props.handleAxeHover(e)}}
+        onMouseLeave = {(e) => {props.handleAxeHover(e)}}
 
+        >
+            {props.axe.name}
+        </Typography>
+
+    }
     return (
-        <Typography variant = 'body2' onClick = {(e) => {props.handleProductClick(e,props.axe.productId, props.axe.tag)}}>{props.axe.name}</Typography>
+        <div>
+            {info}
+        </div>
     )
 }
+*/
