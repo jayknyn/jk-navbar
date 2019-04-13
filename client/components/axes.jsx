@@ -19,12 +19,22 @@ export default class Axe extends React.Component {
         })
     }
 
+    handleAxeClick(e, id, tag) {
+        e.preventDefault();
+        this.setState({
+            axeHovered: !this.state.axeHovered
+        });
+        
+        this.props.handleProductClick(e,id, tag);          
+        this.props.handleTagHover(e);
+    }
+
     render() {
         let info;
         let tooltipTitle = (`Price: $${this.props.axe.price} Description: ${this.props.axe.description.slice(0,15)}...`)
         if (this.state.axeHovered) {
             info = <Tooltip title = {tooltipTitle} placement = 'right-start'>
-                <Typography variant = 'body2' onClick = {(e) => {this.props.handleProductClick(e,this.props.axe.productId, this.props.axe.tag)}}
+                <Typography variant = 'body2' onClick = {(e) => {this.handleAxeClick(e,this.props.axe.productId, this.props.axe.tag)}}
                 onMouseLeave = {(e) => {this.handleAxeHover(e)}}>
                     {this.props.axe.name}
                 </Typography>

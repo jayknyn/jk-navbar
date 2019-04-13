@@ -16,7 +16,7 @@ class Tag extends React.Component {
 
 
     handleHover(e) {
-        e.preventDefault();
+        // e.preventDefault();
         this.setState({
             hovered: !this.state.hovered
         })
@@ -34,7 +34,7 @@ class Tag extends React.Component {
                         </Typography>
                         <div className = 'products'>
                             {this.props.axes.map((axe, index) => {
-                                return <Axe axe = {axe} key = {index} handleProductClick = {this.props.handleProductClick}/>
+                                return <Axe axe = {axe} key = {index} handleProductClick = {this.props.handleProductClick} handleTagHover = {this.handleHover.bind(this)}/>
                             })}
                         </div>
                     </div>

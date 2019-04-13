@@ -80,14 +80,12 @@ class App extends React.Component {
 
 
     handleProductClick(e, id, tag) {
-        e.preventDefault();
-        
+        // e.preventDefault();
         this.setState({
             currentId: id,
             currentTag: tag,
-            carouselBegin: 0,
-            carouselEnd: 5
-        }, (err, res) => {
+            value: false
+        }, () => {
             window.dispatchEvent(new CustomEvent('productId', {"detail": this.state.currentId}))
         });
     }
@@ -246,16 +244,16 @@ class App extends React.Component {
         document.getElementById('products').style.visibility = 'visible' 
     }
 
-    
+
 
     render() {
-        const {value} = this.state;
+        
 
         let tab = <div></div>
 
-        if (value === false) {
+        if (this.state.value === false) {
             tab = <div></div>
-        } else if (value === 'two') {
+        } else if (this.state.value === 'two') {
             tab = <div id = 'tabContainer' style = {{marginLeft: `${this.state.anchorEl}vw`}} onClick = {(e) => {this.handleBackClick(e)}}>
                         {this.state.tags.map((tag, index) => {
                             return <Tag tag = {tag} length = {this.state.tags.length} axes = {this.findallAxesFromTag(tag)} 
@@ -263,10 +261,6 @@ class App extends React.Component {
                         })}
                 </div>
         } 
-        
-        // else {
-        //     tab = <Typography variant = 'body2' id = 'tabContainer' style = {{marginLeft: `${this.state.anchorEl}vw`}}>WIP</Typography>
-        // }
 
         return (
         <MuiThemeProvider theme = {axeTheme}>
@@ -274,7 +268,7 @@ class App extends React.Component {
                 <Typography variant="h6" color="textPrimary" style = {{color: '#c9c9c9', marginLeft: '10vw'}} onClick = {(e) => {this.handleBackClick(e)}}>Axe-Center</Typography>
             </AppBar>
             <div onMouseLeave = {this.handleTabLeave.bind(this)}>
-            <Tabs style = {{backgroundColor: '#c9c9c9'}} value = {value} onChange = {this.handleTabChange.bind(this)} >
+            <Tabs style = {{backgroundColor: '#c9c9c9'}} value = {this.state.value} onChange = {this.handleTabChange.bind(this)} >
                 
                 <Tab value = 'two' icon = {<MenuIcon/>} onMouseEnter = {(e) => this.handleTabChange(e,'two')} style = {{width: '11.5vw', marginLeft: '10vw', color: '#a00000'}}/>
                 <Tab value = 'three' label = 'Contact us' onMouseEnter = {(e) => this.handleTabChange(e,'three')} style = {{width: '11.5vw'}} onClick = {(e) => {this.handleContactClick(e)}}/>
