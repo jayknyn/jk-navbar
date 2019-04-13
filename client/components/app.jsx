@@ -1,12 +1,10 @@
 import React from 'react';
 import Tag from './Tag.jsx';
 import axios from 'axios';
-import AppBar from '@material-ui/core/AppBar';
-import Typography from '@material-ui/core/Typography';
+import { AppBar, Typography, Tabs, Tab } from '@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import Search from './search.jsx';
 import './styles.css';
 
 const ec2address = 'http://ec2-18-224-153-75.us-east-2.compute.amazonaws.com'
@@ -245,7 +243,6 @@ class App extends React.Component {
     }
 
 
-
     render() {
         
 
@@ -266,6 +263,7 @@ class App extends React.Component {
         <MuiThemeProvider theme = {axeTheme}>
             <AppBar position = 'static' style = {{height:'10vh'}}>
                 <Typography variant="h6" color="textPrimary" style = {{color: '#c9c9c9', marginLeft: '10vw'}} onClick = {(e) => {this.handleBackClick(e)}}>Axe-Center</Typography>
+                <Search axesArray = {this.state.axes}/>
             </AppBar>
             <div onMouseLeave = {this.handleTabLeave.bind(this)}>
             <Tabs style = {{backgroundColor: '#c9c9c9'}} value = {this.state.value} onChange = {this.handleTabChange.bind(this)} >

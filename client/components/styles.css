@@ -1,3 +1,37 @@
+
+#searchItem {
+  padding: 10px
+}
+
+#searchResults {
+  background: rgba(204, 204, 204, 1.0);
+  position: absolute;
+  width: 28.2vw;
+  z-index: 100;
+  border: 1px solid grey;
+}
+
+#searchBox {
+  width: 33vw;
+  height: 5vh;
+  margin-left: 33vw;
+}
+#searchField {
+  display: flex;
+}
+
+#searchButton {
+  display: flex;
+  background-color: #a00000;
+  color: white;
+}
+
+#searchContainer {
+
+  display: flex;
+  flex-direction: row;
+}
+
 #tabContainer {
   position: absolute;
   z-index: 100;

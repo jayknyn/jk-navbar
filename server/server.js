@@ -4,6 +4,7 @@ const cors = require('cors');
 const AWS = require('aws-sdk');
 const randomDescription = require('./random_text.js');
 const db = require('../database/db.js');
+const axios = require('axios');
 
 AWS.config.update({
     accessKeyId: process.env.S3AccessKey,
@@ -36,6 +37,27 @@ app.get('/api/navbar/products', (req, res) => {
 });
 
 
+// app.post('/transfer', (req, res) => {
+//     db.getAll((err, data) => {
+//         if (err) {
+//             console.log(err);
+//             res.end();
+//         } else {
+//             res.send(JSON.stringify(data));
+//         }
+//     })
+// })
+
+// app.post('/receiveTransfer', (req, res) => {
+//     // console.log(req.body);
+//     console.log(req.body[0].productId+100);
+//     const dataArr = req.body
+//     for (let i = 0; i < dataArr.length; i++) {
+//         db.save(dataArr[i].productId, dataArr[i].name, dataArr[i].images, dataArr[i].description, dataArr[i].price, dataArr[i].tag)
+//     }
+
+//     res.end();
+// })
 
 
 
