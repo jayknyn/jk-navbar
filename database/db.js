@@ -40,10 +40,10 @@ let save = (productId,productName, productImages, productDescription, productPri
 }
 
 let getAll = (callback) => {
-  Product.find({},['productId','name','description','tag', 'price'],
+  Product.find({},['productId','name','description','tag', 'price', 'images'],
   {
     skip: 0,
-    // limit: 25,
+    //  limit: 5,
     sort: {
       _id: -1
     }
