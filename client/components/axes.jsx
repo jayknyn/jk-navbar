@@ -8,14 +8,22 @@ export default class Axe extends React.Component {
         super(props);
 
         this.state = {
-            axeHovered: false
+            axeHovered: false,
+            beBold: 'normal'
         }
     }
 
     handleAxeHover(e) {
         e.preventDefault();
+        let newBold;
+        if (this.state.beBold === 'bold') {
+            newBold = 'normal'
+        } else {
+            newBold = 'bold'
+        }
         this.setState({
-            axeHovered: !this.state.axeHovered
+            axeHovered: !this.state.axeHovered,
+            beBold: newBold
         })
     }
 
@@ -34,14 +42,19 @@ export default class Axe extends React.Component {
         let tooltipTitle = (`Price: $${this.props.axe.price} Description: ${this.props.axe.description.slice(0,15)}...`)
         if (this.state.axeHovered) {
             info = <Tooltip title = {tooltipTitle} placement = 'right-start'>
-                <Typography variant = 'body2' onClick = {(e) => {this.handleAxeClick(e,this.props.axe.productId, this.props.axe.tag)}}
-                onMouseLeave = {(e) => {this.handleAxeHover(e)}}>
+                <Typography style = {{fontWeight: this.state.beBold}} variant = 'body2' 
+                onClick = {(e) => {this.handleAxeClick(e,this.props.axe.productId, this.props.axe.tag)}}
+                onMouseLeave = {(e) => {this.handleAxeHover(e)}}
+                onMouseEnter = {(e) => {this.handleAxeHover(e)}}
+                >
                     {this.props.axe.name}
                 </Typography>
             </Tooltip>
         } else {
-            info = <Typography variant = 'body2' onClick = {(e) => {this.props.handleProductClick(e,this.props.axe.productId, this.props.axe.tag)}} 
-            onMouseEnter = {(e) => {this.handleAxeHover(e)}} 
+            info = <Typography style = {{fontWeight: this.state.beBold}} variant = 'body2' 
+            onClick = {(e) => {this.props.handleProductClick(e,this.props.axe.productId, this.props.axe.tag)}} 
+            onMouseLeave = {(e) => {this.handleAxeHover(e)}}
+            onMouseEnter = {(e) => {this.handleAxeHover(e)}}
             >
                 {this.props.axe.name}
             </Typography>
