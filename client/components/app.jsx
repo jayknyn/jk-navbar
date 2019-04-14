@@ -263,7 +263,7 @@ class App extends React.Component {
         <MuiThemeProvider theme = {axeTheme}>
             <AppBar position = 'static' style = {{height:'10vh'}}>
                 <Typography variant="h6" color="textPrimary" style = {{color: '#c9c9c9', marginLeft: '10vw'}} onClick = {(e) => {this.handleBackClick(e)}}>Axe-Center</Typography>
-                <Search axesArray = {this.state.axes}/>
+                <Search axesArray = {this.state.axes} handleProductClick = {this.handleProductClick.bind(this)}/>
             </AppBar>
             <div onMouseLeave = {this.handleTabLeave.bind(this)}>
             <Tabs style = {{backgroundColor: '#c9c9c9'}} value = {this.state.value} onChange = {this.handleTabChange.bind(this)} >
