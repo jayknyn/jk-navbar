@@ -79,15 +79,18 @@ class App extends React.Component {
 
     handleProductClick(e, id, tag) {
         // e.preventDefault();
-        this.setState({
-            currentId: id,
-            currentTag: tag,
-            value: false
-        }, () => {
-            window.dispatchEvent(new CustomEvent('productId', {"detail": this.state.currentId}))
-        });
+        if (id && tag) {
+            this.setState({
+                currentId: id,
+                currentTag: tag,
+                value: false
+            }, () => {
+                window.dispatchEvent(new CustomEvent('productId', {"detail": this.state.currentId}))
+            });
+    
+            this.handleBackClick();
 
-        this.handleBackClick();
+        }
     }
 
     findallAxesFromTag(tag) {
