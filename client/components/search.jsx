@@ -22,6 +22,7 @@ class Search extends React.Component {
             searchValue: e.target.value
         }, () => {
             let tempArray = [];
+            let newAxe;
             for (let i = 0; i < this.props.axesArray.length; i++) {
                 if (tempArray.length === 5) {
                     break;
@@ -29,10 +30,16 @@ class Search extends React.Component {
                     tempArray.push(this.props.axesArray[i])
                 }
             }
+
+            if (!tempArray[0]) {
+                newAxe = {};
+            } else {
+                newAxe = tempArray[0]
+            }
             this.setState({
                 subsectionList: tempArray,
                 hovered: true,
-                currentAxe: tempArray[0]
+                currentAxe: newAxe
             })
         })
     }
@@ -59,7 +66,7 @@ class Search extends React.Component {
     render() {
         let searchResults;
         if (this.state.hovered) {
-            searchResults = <Paper id = 'searchResults' onMouseLeave = {() => {this.handleMouseLeave()}}>
+            searchResults = <Paper id = 'searchResults' >
             {
                 this.state.subsectionList.map((val, index) => {
                     return <SearchResults axe = {val} key = {index} 
