@@ -4,7 +4,8 @@ const SearchResults = (props) => {
 
     return (
         
-        <Typography variant = 'body2' id = 'searchItem'><Button fullWidth>{props.axe}</Button></Typography>
+        <Typography variant = 'body2' id = 'searchItem' onClick = {(e) => {props.handleProductClick(e,props.axe.productId,props.axe.tag)}}>
+        <Button fullWidth>{props.axe.name}</Button></Typography>
         
     )
 }

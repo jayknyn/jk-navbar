@@ -8,7 +8,8 @@ class Search extends React.Component {
 
         this.state = {
             searchValue: '',
-            subsectionList: []
+            subsectionList: [],
+            hovered: true
         }
     }
 
@@ -24,16 +25,38 @@ class Search extends React.Component {
                 if (tempArray.length === 5) {
                     break;
                 } else if (this.props.axesArray[i].name.indexOf(this.state.searchValue) !== -1) {
-                    tempArray.push(this.props.axesArray[i].name)
+                    tempArray.push(this.props.axesArray[i])
                 }
             }
             this.setState({
-                subsectionList: tempArray
+                subsectionList: tempArray,
+                hovered: true
             })
         })
     }
 
+    handleMouseLeave() {
+
+        this.setState({
+            hovered: false
+        })
+
+    }
+
     render() {
+        let searchResults;
+        if (this.state.hovered) {
+            searchResults = <Paper id = 'searchResults' onMouseLeave = {() => {this.handleMouseLeave()}}>
+            {
+                this.state.subsectionList.map((val, index) => {
+                    return <SearchResults axe = {val} key = {index} handleProductClick = {this.props.handleProductClick}/>
+                })
+            }
+        </Paper>
+        } else {
+            searchResults = <div></div>
+        }
+
         return (
             <div id = 'searchBox'>
                 <Paper id = 'searchContainer'>
@@ -52,13 +75,8 @@ class Search extends React.Component {
                     </TextField>
                     <Button id = 'searchButton'>Search</Button>
                 </Paper>
-                <Paper id = 'searchResults'>
-                    {
-                        this.state.subsectionList.map((val, index) => {
-                            return <SearchResults axe = {val} key = {index}/>
-                        })
-                    }
-                </Paper>
+                {searchResults}
+
             </div>
         )
     }
