@@ -6,7 +6,6 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import Search from './search.jsx';
 import './styles.css';
-import Logo from '../axe.png';
 
 const ec2address = 'http://ec2-18-224-153-75.us-east-2.compute.amazonaws.com'
 
@@ -268,7 +267,7 @@ class App extends React.Component {
                 
                 <Typography variant="h6" color="textPrimary" 
                 style = {{color: '#c9c9c9', marginLeft: '10vw'}} 
-                onClick = {(e) => {this.handleBackClick(e)}}><img id = 'Logo' src = {Logo}></img></Typography>
+                onClick = {(e) => {this.handleBackClick(e)}}><div id = 'Logo'></div></Typography>
                 <Search axesArray = {this.state.axes} handleProductClick = {this.handleProductClick.bind(this)} 
                 handleBackClick = {this.handleBackClick.bind(this)}/>
             </AppBar>

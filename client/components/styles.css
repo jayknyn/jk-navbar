@@ -1,6 +1,8 @@
 #Logo {
+  background-image: url(https://s3.us-east-2.amazonaws.com/axes/axe.png);
   height: 10vh;
   width: 11.5vw;
+  background-size: 11.5vw 10vh;
 }
 #searchItem {
   padding: 10px
