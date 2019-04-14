@@ -9,7 +9,8 @@ class Search extends React.Component {
         this.state = {
             searchValue: '',
             subsectionList: [],
-            hovered: true
+            hovered: true,
+            currentAxe: {}
         }
     }
 
@@ -24,13 +25,14 @@ class Search extends React.Component {
             for (let i = 0; i < this.props.axesArray.length; i++) {
                 if (tempArray.length === 5) {
                     break;
-                } else if (this.props.axesArray[i].name.indexOf(this.state.searchValue) !== -1) {
+                } else if (this.props.axesArray[i].name.toLowerCase().indexOf(this.state.searchValue) !== -1) {
                     tempArray.push(this.props.axesArray[i])
                 }
             }
             this.setState({
                 subsectionList: tempArray,
-                hovered: true
+                hovered: true,
+                currentAxe: tempArray[0]
             })
         })
     }
@@ -43,13 +45,26 @@ class Search extends React.Component {
 
     }
 
+    handleClick(e) {
+        e.preventDefault();
+
+        this.setState({
+            searchValue: '',
+            hovered: false
+        })
+    }
+
+
+
     render() {
         let searchResults;
         if (this.state.hovered) {
             searchResults = <Paper id = 'searchResults' onMouseLeave = {() => {this.handleMouseLeave()}}>
             {
                 this.state.subsectionList.map((val, index) => {
-                    return <SearchResults axe = {val} key = {index} handleProductClick = {this.props.handleProductClick}/>
+                    return <SearchResults axe = {val} key = {index} 
+                    handleProductClick = {this.props.handleProductClick} 
+                    handleSearchClick = {this.handleClick.bind(this)}/>
                 })
             }
         </Paper>
@@ -62,9 +77,10 @@ class Search extends React.Component {
                 <Paper id = 'searchContainer'>
                     <TextField
                         id="searchField"
+                        value = {this.state.searchValue}
                         // label="Search"
                         style={{ margin: 8 }}
-                        placeholder="Placeholder"
+                        placeholder=""
                         fullWidth
                         margin="normal"
                         InputLabelProps={{
@@ -73,7 +89,11 @@ class Search extends React.Component {
                         onChange = {(e) => {this.handleChange(e)}}
                         >
                     </TextField>
-                    <Button id = 'searchButton'>Search</Button>
+                    <Button id = 'searchButton'
+                    onClick = {(e) => {this.props.handleProductClick(e,this.state.currentAxe.productId, this.state.currentAxe.tag); this.handleClick(e)}}
+                    >
+                        Search
+                    </Button>
                 </Paper>
                 {searchResults}
 

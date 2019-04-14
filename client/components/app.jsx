@@ -2,10 +2,11 @@ import React from 'react';
 import Tag from './Tag.jsx';
 import axios from 'axios';
 import { AppBar, Typography, Tabs, Tab } from '@material-ui/core';
-import MenuIcon from '@material-ui/icons/Menu';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import MenuIcon from '@material-ui/icons/Menu';
 import Search from './search.jsx';
 import './styles.css';
+import Logo from '../axe.png';
 
 const ec2address = 'http://ec2-18-224-153-75.us-east-2.compute.amazonaws.com'
 
@@ -86,6 +87,8 @@ class App extends React.Component {
         }, () => {
             window.dispatchEvent(new CustomEvent('productId', {"detail": this.state.currentId}))
         });
+
+        this.handleBackClick();
     }
 
     findallAxesFromTag(tag) {
@@ -222,8 +225,8 @@ class App extends React.Component {
 
     }
 
-    handleBackClick(e) {
-        e.preventDefault();
+    handleBackClick() {
+        // e.preventDefault();
         let contact = document.getElementById('contactInfo');
         let about = document.getElementById('aboutInfo');
         let phil = document.getElementById('philInfo');
@@ -261,9 +264,13 @@ class App extends React.Component {
 
         return (
         <MuiThemeProvider theme = {axeTheme}>
-            <AppBar position = 'static' style = {{height:'10vh'}}>
-                <Typography variant="h6" color="textPrimary" style = {{color: '#c9c9c9', marginLeft: '10vw'}} onClick = {(e) => {this.handleBackClick(e)}}>Axe-Center</Typography>
-                <Search axesArray = {this.state.axes} handleProductClick = {this.handleProductClick.bind(this)}/>
+            <AppBar position = 'static' style = {{height:'10vh',display: 'flex', flexDirection: 'row'}}>
+                
+                <Typography variant="h6" color="textPrimary" 
+                style = {{color: '#c9c9c9', marginLeft: '10vw'}} 
+                onClick = {(e) => {this.handleBackClick(e)}}><img id = 'Logo' src = {Logo}></img></Typography>
+                <Search axesArray = {this.state.axes} handleProductClick = {this.handleProductClick.bind(this)} 
+                handleBackClick = {this.handleBackClick.bind(this)}/>
             </AppBar>
             <div onMouseLeave = {this.handleTabLeave.bind(this)}>
             <Tabs style = {{backgroundColor: '#c9c9c9'}} value = {this.state.value} onChange = {this.handleTabChange.bind(this)} >
