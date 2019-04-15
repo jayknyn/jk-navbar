@@ -1,29 +1,22 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import './styles.css';
-import Tooltip from '@material-ui/core/Tooltip';
+import { Tooltip, Button } from '@material-ui/core';
 
 export default class Axe extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            axeHovered: false,
-            beBold: 'normal'
+            axeHovered: false
         }
     }
 
     handleAxeHover(e) {
         e.preventDefault();
-        let newBold;
-        if (this.state.beBold === 'bold') {
-            newBold = 'normal'
-        } else {
-            newBold = 'bold'
-        }
+ 
         this.setState({
-            axeHovered: !this.state.axeHovered,
-            beBold: newBold
+            axeHovered: !this.state.axeHovered
         })
     }
 
@@ -42,22 +35,26 @@ export default class Axe extends React.Component {
         let tooltipTitle = (`Price: $${this.props.axe.price} Description: ${this.props.axe.description.slice(0,15)}...`)
         if (this.state.axeHovered) {
             info = <Tooltip title = {tooltipTitle} placement = 'right-start'>
-                <Typography style = {{fontWeight: this.state.beBold}} variant = 'body2' 
-                onClick = {(e) => {this.handleAxeClick(e,this.props.axe.productId, this.props.axe.tag)}}
-                onMouseLeave = {(e) => {this.handleAxeHover(e)}}
-                onMouseEnter = {(e) => {this.handleAxeHover(e)}}
-                >
-                    {this.props.axe.name}
+                <Typography variant = 'body2'>
+                    <Button size = 'small'
+                    onClick = {(e) => {this.handleAxeClick(e,this.props.axe.productId, this.props.axe.tag)}}
+                    onMouseLeave = {(e) => {this.handleAxeHover(e)}}
+                    onMouseEnter = {(e) => {this.handleAxeHover(e)}}
+                    >
+                        {this.props.axe.name}
+                    </Button>
                 </Typography>
             </Tooltip>
         } else {
-            info = <Typography style = {{fontWeight: this.state.beBold}} variant = 'body2' 
-            onClick = {(e) => {this.props.handleProductClick(e,this.props.axe.productId, this.props.axe.tag)}} 
+            info = <Typography variant = 'body2'>
+            <Button size = 'small'
+            onClick = {(e) => {this.handleAxeClick(e,this.props.axe.productId, this.props.axe.tag)}}
             onMouseLeave = {(e) => {this.handleAxeHover(e)}}
             onMouseEnter = {(e) => {this.handleAxeHover(e)}}
             >
                 {this.props.axe.name}
-            </Typography>
+            </Button>
+        </Typography>
     
         }
         return (

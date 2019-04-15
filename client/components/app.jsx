@@ -1,11 +1,12 @@
 import React from 'react';
 import Tag from './Tag.jsx';
 import axios from 'axios';
-import { AppBar, Typography, Tabs, Tab } from '@material-ui/core';
+import { AppBar, Typography, Tabs, Tab,  } from '@material-ui/core';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import Search from './search.jsx';
 import './styles.css';
+
 
 const ec2address = 'http://ec2-18-224-153-75.us-east-2.compute.amazonaws.com'
 
@@ -270,7 +271,7 @@ class App extends React.Component {
                 
                 <Typography variant="h6" color="textPrimary" 
                 style = {{color: '#c9c9c9', marginLeft: '10vw'}} 
-                onClick = {(e) => {this.handleBackClick(e)}}><div id = 'Logo'></div></Typography>
+                onClick = {(e) => {this.handleBackClick(e)}}><img id = 'Logo' src = 'https://s3.us-east-2.amazonaws.com/axes/axe.png'></img></Typography>
                 <Search axesArray = {this.state.axes} handleProductClick = {this.handleProductClick.bind(this)} 
                 handleBackClick = {this.handleBackClick.bind(this)}/>
             </AppBar>
