@@ -59,7 +59,3 @@ let getAll = (callback) => {
 module.exports.save = save;
 
 module.exports.getAll = getAll;
-
-
-
-
