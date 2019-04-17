@@ -4,7 +4,6 @@ const cors = require('cors');
 const AWS = require('aws-sdk');
 const randomDescription = require('./random_text.js');
 const db = require('../database/db.js');
-const axios = require('axios');
 
 AWS.config.update({
     accessKeyId: process.env.S3AccessKey,
@@ -13,9 +12,6 @@ AWS.config.update({
 });
 
 const s3 = new AWS.S3();
-
-
-
 
 app.use(express.json({urlencoded: true}));
 app.use(cors());
@@ -59,13 +55,6 @@ app.get('/api/navbar/products', (req, res) => {
 //     res.end();
 // })
 
-
-
-
-
-
-
-
 app.post('/seed', (req, res) => {
     s3.listObjects(params, function (err, data) {
         if(err) {
@@ -102,8 +91,6 @@ app.post('/seed', (req, res) => {
         res.end();
     });
 })
-
-
 
 app.listen(process.env.PORT || 3005, (err, res) => {
     if (err) {
