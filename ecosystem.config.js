@@ -1,6 +1,3 @@
-
-
-
 module.exports = {
     apps: [{
       name: 'server',
