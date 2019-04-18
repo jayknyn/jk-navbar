@@ -1,14 +1,16 @@
 const mongoose = require('mongoose');
 require('dotenv').config()
 
-const url = process.env.MONGO_URI;
+// const url = process.env.MONGO_URI;
+const url = "mongodb://localhost/test"
 mongoose.connect(url, (err, res) => {
   if (err) {
-    console.log(err);
+    console.log('db connect error:', err);
   } else {
-    console.log('we made it')
+    console.log('db connect success')
   }
 });
+
 let productSchema = mongoose.Schema({
   productId: Number,
   name: String,
@@ -20,7 +22,7 @@ let productSchema = mongoose.Schema({
 
 let Product = mongoose.model('Product', productSchema);
 
-let save = (productId,productName, productImages, productDescription, productPrice, productTag) => {
+let save = (productId, productName, productImages, productDescription, productPrice, productTag) => {
   let newThing  = new Product({
       productId: productId,
       name: productName,
@@ -51,7 +53,7 @@ let getAll = (callback) => {
     if (err) {
       callback(err, null);
     } else {
-      callback(null,data);
+      callback(null, data);
     }
   });
 }

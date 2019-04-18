@@ -1,0 +1,45 @@
+#tabContainer {
+  position: absolute;
+  z-index: 100;
+  background: rgba(204, 204, 204, 1.0);
+  width: 11.5vw;
+}
+
+.NavBar {
+ display: flex;
+ flex-grow: 1;
+}
+
+.products {
+  display: flex;
+  position: absolute;
+  background: rgba(204, 204, 204, 1.0);
+  margin-left: 11.5vw;
+  width: 11.5vw;
+  flex-direction: column;
+  text-align: center;
+}
+.navHover {
+  display: flex;
+  width: 50vw;
+  height: 100%;
+  float: left;
+} 
+
+.navHoverRight {
+  display: flex;
+  float: right;
+} 
+
+/*
+
+#NavBarParent {
+  flex-grow: 1;
+  width: 85vw;
+  display: flex;  
+  padding-left: 6.5vw;
+
+}
+
+
+*/
