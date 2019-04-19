@@ -10,6 +10,7 @@
   "scripts": {
     "build": "webpack -d --watch",
     "start": "nodemon ./server/server.js",
+    "memstart": "nodemon --max-old-space-size=8192 ./server/server.js",
     "deploy": "pm2 deploy ecosystem.config.js production",
     "restart": "pm2 startOrRestart ecosystem.config.js"
   },
@@ -24,6 +25,7 @@
     "jquery": "^3.3.1",
     "mongoose": "^5.4.20",
     "nodemon": "1.18.10",
+    "os": "^0.1.1",
     "react": "^16.2.0",
     "react-burger-menu": "^2.6.8",
     "react-dom": "^16.2.0",

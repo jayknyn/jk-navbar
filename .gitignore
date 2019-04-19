@@ -26,3 +26,5 @@ package-lock.json
 
 #environment
 .env
+
+*.csv
