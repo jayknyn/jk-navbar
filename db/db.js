@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 require('dotenv').config()
 
 // const url = process.env.MONGO_URI;
-const url = "mongodb://localhost:27017/test"
+const url = "mongodb://localhost/mydb"
 // mongoose.connect(url, (err, res) => {
 mongoose.connect(url, (err, res) => {
   if (err) {

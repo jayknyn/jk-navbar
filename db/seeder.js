@@ -53,4 +53,4 @@ const seed = (count) => {
 
 seed(10);
 
-// $ mongo database/seeder.js
+// $ mongo db/seeder.js

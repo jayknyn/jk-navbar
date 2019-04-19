@@ -3,7 +3,7 @@ const app = express();
 const cors = require('cors');
 const AWS = require('aws-sdk');
 const randomDescription = require('./random_text.js');
-const db = require('../database/db.js');
+const db = require('../db/db.js');
 app.listen(process.env.PORT || 3005, (err, res) => {
   if (err) {
     console.log(err)

@@ -77,4 +77,4 @@ fs.writeFileSync(filename, output.join(os.EOL), (err, success) => {
   }
 });
 
-// mongoimport -d sdccsv -c products --type csv --file database/output.csv --headerline
+// mongoimport -d sdccsv -c products --type csv --file db/output.csv --headerline

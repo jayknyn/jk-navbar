@@ -42,4 +42,4 @@ fs.writeFileSync(filename, output.join(os.EOL), (err, success) => {
   }
 });
 
-// mongoimport -d mydb -c things --type csv --file database/output.csv --headerline
+// mongoimport -d mydb -c things --type csv --file db/output.csv --headerline
