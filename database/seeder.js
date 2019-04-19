@@ -1,14 +1,14 @@
-db.Product.drop()
+db.products.drop()
 
 const seed = (count) => {
   while (count > 0) {
     const batch = [];
-    for (let i = 0; i < 200000; i++) {
+    for (let i = 0; i < 20000; i++) {
       batch.push({
         productId: 100,
         name: 'Soul Flare',
         images: `https://s3.us-east-2.amazonaws.com/axes/battle+axe/1.+battle-axe.jpg`,
-        price: 699,
+        price: 499,
         description: 'Palo santo mixtape occaecat sartorial. Cloud bread YOLO swag',
         tag: 'throwing'
       },
@@ -16,7 +16,7 @@ const seed = (count) => {
         productId: 95,
         name: 'Baneful Beads',
         images: `https://s3.us-east-2.amazonaws.com/fecproject/downloads/halberd-axes/24.+halberd_20015w.jpg`,
-        price: 4509,
+        price: 69,
         description: 'Cold-pressed gochujang microdosing ut pour-over',
         tag: 'flaunting'
       },
@@ -46,9 +46,11 @@ const seed = (count) => {
       }
       )
     }
-    db.Product.insertMany(batch)
+    db.products.insertMany(batch)
     count--;
   }
 }
 
 seed(10);
+
+// $ mongo database/seeder.js

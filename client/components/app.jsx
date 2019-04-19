@@ -50,7 +50,7 @@ class App extends React.Component {
   componentDidMount() {
     axios.get(`${host}/api/navbar/products`)
     .then(results => {
-      console.log('axios get /api/navbar/products success, results.data.length:', results.data.length, 'results.data[0]: ', results.data[0], results.data[20], results.data[40])
+      console.log('axios get /api/navbar/products success, results.data.length:', results.data.length, 'results.data[0]: ', results.data[0], results.data[1], results.data[2])
       const tagArr = [];
       const tagObj = {};
       for (let obj of results.data) {
@@ -59,9 +59,13 @@ class App extends React.Component {
           tagObj[obj.tag] = 1;
         }
       }
+      const truncatedAxes = [];
+      for (let i = 0; i < 20; i++) {
+        truncatedAxes.push(results.data[i])
+      }
       this.setState({
         tags: tagArr,
-        axes: results.data
+        axes: truncatedAxes
       });
     })
     .catch(err => {
@@ -242,22 +246,27 @@ class App extends React.Component {
     if (this.state.value === false) {
       tab = <div></div>
     } else if (this.state.value === 'two') {
-      tab = <div id = 'tabContainer' style = {{marginLeft: `${this.state.anchorEl}vw`}} onClick = {(e) => {this.handleBackClick(e)}}>
-            {this.state.tags.map((tag, index) => {
-              return <Tag tag = {tag} length = {this.state.tags.length} axes = {this.findallAxesFromTag(tag)} 
-              key = {index} handleProductClick = {this.handleProductClick.bind(this)}/> 
-            })}
-        </div>
+      tab = 
+      <div id = 'tabContainer' style = {{marginLeft: `${this.state.anchorEl}vw`}} onClick = {(e) => {this.handleBackClick(e)}}>
+        {this.state.tags.map((tag, index) => {
+          return <Tag tag = {tag} length = {this.state.tags.length} axes = {this.findallAxesFromTag(tag)} 
+          key = {index} handleProductClick = {this.handleProductClick.bind(this)}/> 
+        })}
+      </div>
     } 
 
     return (
       <MuiThemeProvider theme = {axeTheme}>
         <AppBar position = 'static' style = {{display: 'flex', flexDirection: 'row'}}>
           <Typography variant="h6" color="textPrimary" 
-          style = {{color: '#c9c9c9', marginLeft: '10vw'}} 
-          onClick = {(e) => {this.handleBackClick(e)}}><img id = 'Logo' src = 'https://s3.us-east-2.amazonaws.com/axes/axe.png'></img></Typography>
-          <Search axesArray = {this.state.axes} handleProductClick = {this.handleProductClick.bind(this)} 
-          handleBackClick = {this.handleBackClick.bind(this)}/>
+            style = {{color: '#c9c9c9', marginLeft: '10vw'}} 
+            onClick = {(e) => {this.handleBackClick(e)}}>
+            <img id = 'Logo' src = 'https://s3.us-east-2.amazonaws.com/axes/axe.png'></img>
+          </Typography>
+          <Search 
+            axesArray = {this.state.axes} handleProductClick = {this.handleProductClick.bind(this)} 
+            handleBackClick = {this.handleBackClick.bind(this)}
+          />
         </AppBar>
         <div onMouseLeave = {this.handleTabLeave.bind(this)}>
         <Tabs style = {{backgroundColor: '#c9c9c9'}} value = {this.state.value} onChange = {this.handleTabChange.bind(this)} >
