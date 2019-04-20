@@ -1,12 +1,13 @@
 config:
   target: 'http://localhost:3005'
   phases:
-    - duration: 10
-      arrivalRate: 5000
+    - duration: 9
+      arrivalRate: 100
+      # rampTo: 10
   defaults:
     headers:
       x-my-service-auth: '987401838271002188298567'
 scenarios:
   - flow:
     - get:
-        url: "/"
+        url: "/api/navbar/products"

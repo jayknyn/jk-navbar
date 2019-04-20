@@ -3,7 +3,8 @@ const app = express();
 const cors = require('cors');
 const AWS = require('aws-sdk');
 const randomDescription = require('./random_text.js');
-const db = require('../database/db.js');
+const dbmg = require('../db/dbmg.js');
+const dbpg = require('../db/dbpg.js');
 app.listen(process.env.PORT || 3005, (err, res) => {
   if (err) {
     console.log(err)
@@ -29,12 +30,12 @@ const params = {
 }
 
 app.get('/api/navbar/products', (req, res) => {
-  db.getAll((err, data) => {
+  dbpg.getAll((err, data) => {
     if (err) {
-      console.log('db getAll error:', err);
+      console.log('app.get getAll error:', err);
       res.end('db getAll error')
     } else {
-      console.log('db getAll success, data.length', data.length)
+      console.log('app.get getAll success, data.length', data.length)
       res.send(data);
     }
   })
