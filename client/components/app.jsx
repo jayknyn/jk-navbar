@@ -50,7 +50,7 @@ class App extends React.Component {
   componentDidMount() {
     axios.get(`${host}/api/navbar/products`)
     .then(results => {
-      console.log('axios get /api/navbar/products success, results.data.length:', results.data.length, 'results.data[0]: ', results.data[0], results.data[1], results.data[2])
+      console.log('axios get /api/navbar/products success, results.data.length:', results.data.length, 'results.data[0, 1, 2]: ', results.data[0], results.data[1], results.data[2])
       const tagArr = [];
       const tagObj = {};
       for (let obj of results.data) {
