@@ -7,7 +7,7 @@ const config = {
   password: process.env.postgresPW,
   host: process.env.PGHOST,
   port: 5432, 
-  max: 1000, // max number of connection can be open to database
+  max: 5000, // max number of connection can be open to database
   idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
 };
 
