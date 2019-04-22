@@ -6,11 +6,11 @@ module.exports = {
     deploy: {
       production: {
         user: 'ubuntu',
-        host: 'ec2-18-224-153-75.us-east-2.compute.amazonaws.com',
-        key: '~/.ssh/FEC_Navbar.pem',
+        host: '18.224.39.146',
+        key: '~/.ssh/jksdc.pem',
         ref: 'origin/master',
-        repo: 'https://github.com/axe-center/AAnderson_Navbar_carousel_service.git',
-        path: '/home/ubuntu/AAnderson_Navbar_Service',
+        repo: 'https://github.com/ten-7/jk-navbar.git',
+        path: '/home/ubuntu/navbar',
         'post-deploy': 'npm install && pm2 startOrRestart ecosystem.config.js'
       }
     }

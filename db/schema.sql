@@ -11,7 +11,7 @@ CREATE TABLE products (
 );
 
 -- INSERT INTO products(_id,productId,name,description,tag,price,images) VALUES(1, 100,'Soul Flare', 'Palo santo mixtape occaecat sartorial. Cloud bread YOLO swag','throwing',499,'https://s3.us-east-2.amazonaws.com/axes/battle+axe/1.+battle-axe.jpg');
-\copy products FROM './db/outputpg.csv' DELIMITER ',' CSV
+\COPY products FROM './db/outputpg.csv' DELIMITER ',' CSV
 
 -- $ psql -d navbar -U jayk <db/schema.sql
 
