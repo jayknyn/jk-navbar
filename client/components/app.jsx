@@ -8,7 +8,7 @@ import Search from './search.jsx';
 import './styles.css';
 
 // const host = 'http://localhost:3005'
-const host = 'http://18.216.44.7'
+const host = 'http://3.16.162.156'
 
 const axeTheme = createMuiTheme({
   palette: {
