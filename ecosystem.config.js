@@ -6,7 +6,7 @@ module.exports = {
     deploy: {
       production: {
         user: 'ubuntu',
-        host: '18.224.39.146',
+        host: '18.216.44.7',
         key: '~/.ssh/jksdc.pem',
         ref: 'origin/master',
         repo: 'https://github.com/ten-7/jk-navbar.git',
