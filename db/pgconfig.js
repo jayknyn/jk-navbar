@@ -17,7 +17,7 @@ pool.connect((err, success) => {
   if (err) {
     console.log('db pg connect error:', err);
   } else {
-    console.log('db pg connect success')
+    console.log('db pg connect success, db host:', config.host)
   }
 })
 

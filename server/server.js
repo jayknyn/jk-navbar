@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const path = require('path');
 const cors = require('cors');
 const AWS = require('aws-sdk');
 const randomDescription = require('./random_text.js');
@@ -40,6 +41,10 @@ app.get('/api/navbar/products', (req, res) => {
     }
   })
 });
+
+app.get('/loaderio-bc78d2028c7aa4c9c6b685e521146314', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist', 'loaderio-bc78d2028c7aa4c9c6b685e521146314.txt'));
+})
 
 app.post('/seed', (req, res) => {
   s3.listObjects(params, function (err, data) {
