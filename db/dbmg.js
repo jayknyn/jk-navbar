@@ -7,7 +7,7 @@ mongoose.connect(url, {useNewUrlParser: true}, (err, res) => {
   if (err) {
     console.log('db mg connect error:', err);
   } else {
-    console.log('db mg connect success')
+    console.log('db mg connect success, db host:', url)
   }
 });
 
