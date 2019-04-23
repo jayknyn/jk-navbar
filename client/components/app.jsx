@@ -7,7 +7,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Search from './search.jsx';
 import './styles.css';
 
-const host = 'http://localhost:3005'
+// const host = 'http://localhost:3005'
+const host = 'http://3.16.162.156'
 
 const axeTheme = createMuiTheme({
   palette: {
