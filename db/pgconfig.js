@@ -7,8 +7,8 @@ const config = {
   password: process.env.postgresPW,
   host: process.env.PGHOST,
   port: 5432, 
-  max: 5000, // max number of connection can be open to database
-  idleTimeoutMillis: 30000, // how long a client is allowed to remain idle before being closed
+  max: 50000, // max number of connection can be open to database
+  idleTimeoutMillis: 60000, // how long a client is allowed to remain idle before being closed
 };
 
 const pool = new pg.Pool(config);

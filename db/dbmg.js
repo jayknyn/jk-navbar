@@ -58,24 +58,8 @@ let getAll = (cb) => {
         cb(null, data)
       }
     })
-
-  // Product.find({},['productId','name','description','tag', 'price', 'images'],
-  // {
-  //   skip: 0,
-  //    limit: 5,
-  //   sort: {
-  //     _id: -1
-  //   }
-  // }, (err, data) => {
-  //   if (err) {
-  //     callback(err, null);
-  //   } else {
-  //     console.log('got the data:', data[0])
-  //     callback(null, data);
-  //   }
-  // });
 }
 
 module.exports.save = save;
-
 module.exports.getAll = getAll;
+
