@@ -42,8 +42,8 @@ app.get('/api/navbar/products', (req, res) => {
   })
 });
 
-app.get('/loaderio-bc78d2028c7aa4c9c6b685e521146314', (req, res) => {
-  res.sendFile(path.join(__dirname, '../dist', 'loaderio-bc78d2028c7aa4c9c6b685e521146314.txt'));
+app.get('/loaderio-28f80ecdefc70b3a379276d52cfd0603', (req, res) => {
+  res.sendFile(path.join(__dirname, '../tests', 'loaderio-28f80ecdefc70b3a379276d52cfd0603.txt'));
 })
 
 app.post('/seed', (req, res) => {
