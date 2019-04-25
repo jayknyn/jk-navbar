@@ -4,7 +4,7 @@ const path = require('path');
 const cors = require('cors');
 const AWS = require('aws-sdk');
 const randomDescription = require('./random_text.js');
-const dbmg = require('../db/dbmg.js');
+// const dbmg = require('../db/dbmg.js');
 const dbpg = require('../db/dbpg.js');
 app.listen(process.env.PORT || 3005, (err, res) => {
   if (err) {
