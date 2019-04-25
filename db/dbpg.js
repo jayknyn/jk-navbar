@@ -2,7 +2,7 @@ const db = require('./pgconfig.js')
 
 const getAll = (cb) => {
   // db.pool.query("SELECT * FROM products LIMIT 50", (err, data) => {
-  db.pool.query("SELECT * FROM products WHERE productId BETWEEN 30 AND 200 LIMIT 50", (err, data) => {
+  db.pool.query("SELECT * FROM products WHERE productId BETWEEN 30 AND 300 LIMIT 50", (err, data) => {
     if (err) {
       console.log('db pg getAll error')
     } else {
