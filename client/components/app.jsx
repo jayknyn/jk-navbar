@@ -8,7 +8,7 @@ import Search from './search.jsx';
 import './styles.css';
 
 // const host = 'http://localhost:3005'
-const host = 'http://18.218.238.147'
+const host = 'http://classic-elb-navbar-2032496581.us-east-2.elb.amazonaws.com'
 
 const axeTheme = createMuiTheme({
   palette: {
