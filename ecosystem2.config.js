@@ -4,9 +4,9 @@ module.exports = {
       script: './server/server.js'
     }],
     deploy: {
-      production1: {
+      production: {
         user: 'ubuntu',
-        host: '18.220.55.153',
+        host: '18.218.238.147',
         key: '~/.ssh/jksdc.pem',
         ref: 'origin/master',
         repo: 'https://github.com/ten-7/jk-navbar.git',
