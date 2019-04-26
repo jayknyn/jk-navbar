@@ -12,8 +12,7 @@
     "start": "nodemon ./server/server.js",
     "memstart": "nodemon --max-old-space-size=12288 ./server/server.js",
     "csv": "node --max-old-space-size=12288 db/csvcreate.js",
-    "deploy": "pm2 deploy ecosystem.config.js production1",
-    "deploy2": "pm2 deploy ecosystem2.config.js production",
+    "deploy": "pm2 deploy ecosystem.config.js production1 production2",
     "restart": "pm2 startOrRestart ecosystem.config.js"
   },
   "dependencies": {
